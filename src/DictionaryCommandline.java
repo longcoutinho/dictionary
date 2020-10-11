@@ -15,15 +15,15 @@ public class DictionaryCommandline extends Dictionary {
 
 	public void dictionaryAdvanced() {
 		dictionaryManagement.insertFromFile();
-		showAllWords();
+		//showAllWords();
 		//System.out.println(dictionaryManagement.dictionaryLookup("brother"));
 		//dictionarySearcher("sis");
 		dictionaryManagement.dictionaryExportToFile();
 	}
 
 	public static void main(String[] args) {
-		DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
-		dictionaryCommandline.dictionaryAdvanced();
+		//DictionaryCommandline dictionaryCommandline = new DictionaryCommandline();
+		//dictionaryCommandline.dictionaryAdvanced();
 	}
 }
 
