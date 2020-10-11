@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
@@ -46,16 +44,29 @@ public class DictionaryManagement extends Dictionary {
 
 	public void listOfSearching(String wordNeedToSearch) {
 		for(int i = 0 ; i < getWordCount() ; i++) {
-			System.out.println(1);
 			if ((listofWords.get(i).getWord_target()).startsWith(wordNeedToSearch)) System.out.println(listofWords.get(i).getWord_target());
 		}
 	}
 
-	public void printListOfWords() {
+	public void dictionaryExportToFile() {
+		try	{
+			String str = printListOfWords();
+			BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"));
+			writer.write(str);
+			writer.close();
+		}
+		catch (Exception e) {
+			System.out.println("Something went wrong.");
+		}
+	}
+
+	public String printListOfWords() {
+		String res = "";
 		int value = getWordCount();
 		for(int i = 0 ; i < value ; i++) {
-			System.out.println(listofWords.get(i).getWord_target() + "|" + listofWords.get(i).getWord_explain());
+			res += listofWords.get(i).getWord_target() + "  |  " + listofWords.get(i).getWord_explain() + "\n";
 		}
+		return res;
 	}
 }
 

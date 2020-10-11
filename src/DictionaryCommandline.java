@@ -1,11 +1,11 @@
 public class DictionaryCommandline extends Dictionary {
 	DictionaryManagement dictionaryManagement = new DictionaryManagement();
 	public void showAllWords() {
-		dictionaryManagement.printListOfWords();
+		System.out.println(dictionaryManagement.printListOfWords());
 	}
 
 	public void dictionarySearcher(String wordSearching) {
-		dictionaryManagement.listOfSearching("wordSearching");
+		dictionaryManagement.listOfSearching(wordSearching);
 	}
 
 	public void dictionaryBasic() {
@@ -16,8 +16,9 @@ public class DictionaryCommandline extends Dictionary {
 	public void dictionaryAdvanced() {
 		dictionaryManagement.insertFromFile();
 		showAllWords();
-		System.out.println(dictionaryManagement.dictionaryLookup("brother"));
-		dictionarySearcher("sis");
+		//System.out.println(dictionaryManagement.dictionaryLookup("brother"));
+		//dictionarySearcher("sis");
+		dictionaryManagement.dictionaryExportToFile();
 	}
 
 	public static void main(String[] args) {
