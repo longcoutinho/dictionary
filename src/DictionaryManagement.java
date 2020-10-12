@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
@@ -30,7 +32,6 @@ public class DictionaryManagement extends Dictionary {
 			}
 			setWordCount(value);
 		}catch(IOException ex){
-
 			System.out.println(ex);
 		}
 	}
@@ -39,13 +40,15 @@ public class DictionaryManagement extends Dictionary {
 		for(int i = 0 ; i < getWordCount() ; i++) {
 			if (listofWords.get(i).getWord_target().equals(wordLookup)) return listofWords.get(i).getWord_explain();
 		}
-		return "-1";
+		return "Cannot find this word!";
 	}
 
-	public void listOfSearching(String wordNeedToSearch) {
+	public List<String> listOfSearching(String wordNeedToSearch) {
+		List<String> newlist = new ArrayList<>();
 		for(int i = 0 ; i < getWordCount() ; i++) {
-			if ((listofWords.get(i).getWord_target()).startsWith(wordNeedToSearch)) System.out.println(listofWords.get(i).getWord_target());
+			if ((listofWords.get(i).getWord_target()).startsWith(wordNeedToSearch)) newlist.add(listofWords.get(i).getWord_target() + "\n");
 		}
+		return newlist;
 	}
 
 	public void dictionaryExportToFile() {

@@ -2,5 +2,8 @@ sister	chi(em) gai
 sis1123	1
 sisosi	2
 hisis	3
+a	mot
+an	mot
+assist	ho tro
 brother	anh(em) trai
 hanvuhoanglong	deptraivcl
