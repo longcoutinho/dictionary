@@ -40,7 +40,7 @@ public class DictionaryManagement extends Dictionary {
 		for(int i = 0 ; i < getWordCount() ; i++) {
 			if (listofWords.get(i).getWord_target().equals(wordLookup)) return listofWords.get(i).getWord_explain();
 		}
-		return "Cannot find this word!";
+		return "";
 	}
 
 	public List<String> listOfSearching(String wordNeedToSearch) {
