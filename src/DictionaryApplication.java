@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -57,6 +58,23 @@ public class DictionaryApplication extends Application {
 				for(int i = 0 ; i < lstr.size() ; i++)
 					word_list.getItems().add(lstr.get(i));
 				//word_list.getItems().addAll(lstr);
+			}
+		});
+		word_list.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				String nameitem = word_list.getSelectionModel().getSelectedItems().get(0);
+				word_input.setText(nameitem);
+				nameitem = nameitem.replace("\n","");
+				word_output.setText(dictionaryManagement.dictionaryLookup(nameitem));
+				//System.out.println(dictionaryManagement.dictionaryLookup(abcd));
+				List<String> lstr1 = new ArrayList<>();
+				lstr1.clear();
+				lstr1 = dictionaryManagement.listOfSearching(nameitem);
+				word_list.getItems().clear();
+				for(int i = 0 ; i < lstr1.size() ; i++)
+					word_list.getItems().add(lstr1.get(i));
+
 			}
 		});
 		Pane root = new Pane();

@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class DictionaryManagement extends Dictionary {
 	public void insertFromCommandline() {
@@ -29,6 +27,7 @@ public class DictionaryManagement extends Dictionary {
 				lineparts = line.split("\t+");
 				Word newWord = new Word(lineparts[0],lineparts[1]);
 				listofWords.add(newWord);
+				Collections.sort(listofWords);
 			}
 			setWordCount(value);
 		}catch(IOException ex){
