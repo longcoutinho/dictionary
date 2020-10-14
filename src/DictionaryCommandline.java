@@ -1,3 +1,5 @@
+import javafx.util.Pair;
+
 public class DictionaryCommandline extends Dictionary {
 	DictionaryManagement dictionaryManagement = new DictionaryManagement();
 	public void showAllWords() {
@@ -5,7 +7,8 @@ public class DictionaryCommandline extends Dictionary {
 	}
 
 	public void dictionarySearcher(String wordSearching) {
-		dictionaryManagement.listOfSearching(wordSearching);
+		Pair<Integer,Integer> newpair = dictionaryManagement.listOfAdvancedSearching(wordSearching);
+		System.out.println(newpair.getKey() + " " + newpair.getValue());
 	}
 
 	public void dictionaryBasic() {
@@ -17,8 +20,8 @@ public class DictionaryCommandline extends Dictionary {
 		dictionaryManagement.insertFromFile();
 		//showAllWords();
 		//System.out.println(dictionaryManagement.dictionaryLookup("brother"));
-		//dictionarySearcher("sis");
-		dictionaryManagement.dictionaryExportToFile();
+		dictionarySearcher("");
+		//dictionaryManagement.dictionaryExportToFile();
 	}
 
 	public static void main(String[] args) {
